@@ -35,4 +35,20 @@ http
   .createServer((request, response) => {
     let url = request.url;
     response.writeHeader(200, { "Content-Type": "text/html" });
-    switch (url)…
+    switch (url){
+        case "/project":
+        response.write(projectContent);
+        response.end();
+        break;
+        case "/registration":
+        response.write(registrationContent);
+        response.end();
+        break;
+      default:
+        response.write(homeContent);
+        response.end();
+        break;
+    }
+  })
+  .listen(args.port);
+  });
